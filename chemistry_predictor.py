@@ -7,30 +7,16 @@ Original file is located at
     https://colab.research.google.com/drive/1cpqQuMJouqWJ-jf0AsFkWdGBy9oytb7S
 """
 
-!sudo apt install tesseract-ocr
-!pip install pytesseract
 
-import pytesseract
-import shutil
-import os
-import random
-from PIL import Image
-try:
-     extractedInformation = pytesseract.image_to_string(Image.open("/content/HCL.png"))
-     print(extractedInformation)
-except Exception:
-       pass
-       print("None")
+# !pip uninstall opencv-python
+# !pip install opencv-python==4.5.4.60 easyocr
 
-!pip uninstall opencv-python
-!pip install opencv-python==4.5.4.60 easyocr
+# !pip install wikipedia
+# !pip install chemicals
 
-!pip install wikipedia
-!pip install chemicals
-
-!sudo apt install tesseract-ocr
-!pip install pytesseract
-!pip install easyocr
+# !sudo apt install tesseract-ocr
+# !pip install pytesseract
+# !pip install easyocr
 
 from PIL import Image
 import easyocr
@@ -286,133 +272,5 @@ elif text == "2":
   engine_2() 
 else:
   print("Invalid engine")
-# new = input("Where these the results you were looking for? [Y/N]")
 
-# if new == "Y" or "y":
-#   import pytesseract
-#   import shutil
-#   import os
-#   import random
-#   try:
-#      from PIL import Image
-#   except ImportError:
-#       import Image
-#   image_path_in_colab="/content/HCL.png"
-#   final_text = pytesseract.image_to_string(Image.open(image_path_in_colab))
 
-extractedInformation = "hello --> hi"
-def Convert(string):
-                    li = list(string.split(" " or "-->" or "--" or "-" or ">" or "+"))
-                    return li
-                    str1 = extractedInformation
-                    conv = Convert(str1)
-                    print(conv[-1])
-                    return(conv())
-Convert(extractedInformation)
-
-input("what engine do you want to use")
-
-path = input("Enter path: ")
-print(path)
-
-"""CREATE DICTIONARY FOR THE REACTANT PRODUCTS AND NAMES"""
-
-!pip install chemicals
-
-from chemicals import CAS_from_any, MW, Tb, Tm, Tc, Pc, Vc, Hfus, Hfs, Hfl, Hfg, S0s, S0l, S0g
-try:
-  CAS_water = CAS_from_any(conv[-1])
-  # CAS_WATER1 = CAS_from_any(conv[-2])
-  print(f"Molecular weight: {MW(CAS_water)}")   # Molecular weight [g/mol8.01528
-  print(f"Normal boiling point[K]: {Tb(CAS_water)}")   # Normal boiling point [K]
-  print(f"Molecular weight[K]: {MW(CAS_water)}")   # Molecular weight [g/mol8.01528
-  print(f"Normal boiling point[K]: {Tb(CAS_water)}")   # Normal boiling point [K]
-  print(f"Melting point [K]: {Tm(CAS_water)}")  # Melting point [K]
-  print(f"Critical temperature [K]: {Tc(CAS_water)}")   # Critical temperature [K]
-  print(f"Critical pressure [Pa]: {Pc(CAS_water)}")  , # Critical pressure [Pa]
-  print(f"Critical volume [m^3/mol]: {Vc(CAS_water)}")   ,# Critical volume [m^3/mol]
-  print(f"Heat of fusion [J/mol]: {Hfus(CAS_water)}") , # 
-  print(f"Liquid heat of formation [J/mol]: {Hfl(CAS_water)}")  ,# Liquid heat of formation [J/mol]
-  print(f"Gas heat of formation [J/mol]: {Hfg(CAS_water)}")  ,# Gas heat of formation [J/mol]
-  print(f"Absolute liquid enthalpy of formation [J/mol/K]: {S0l(CAS_water)}")  ,# Absolute liquid enthalpy of formation [J/mol/K]
-  print(f"Absolute gas enthalpy of formation [J/mol/K]: {S0g(CAS_water)}") # Absolute gas enthalpy of formation [J/mol/K]
-except Exception:
-  pass
-  print("Couldn't find reaction")
-
-try:
-   CAS_WATER1 = CAS_from_any(conv[-2])
-   print(f"Molecular weight: {MW(CAS_water1)} \n")   # Molecular weight [g/mol8.01528
-   print(f"Normal boiling point: {Tb(CAS_water1)}")   # Normal boiling point [K]
-   print(f"Molecular weight: {MW(CAS_water1)}")   # Molecular weight [g/mol8.01528
-   print(f"Normal boiling point: {Tb(CAS_water1)}")   # Normal boiling point [K]
-   print(f"Melting point [K]: {Tm(CAS_water1)}")  # Melting point [K]
-   print(f"Critical temperature [K]: {Tc(CAS_water1)}")   # Critical temperature [K]
-   print(f"Critical pressure [Pa]: {Pc(CAS_water1)}")  , # Critical pressure [Pa]
-   print(f"Critical volume [m^3/mol]: {Vc(CAS_water1)}")   ,# Critical volume [m^3/mol]
-   print(f"Heat of fusion [J/mol]: {Hfus(CAS_water1)}") , # 
-   print(f"Liquid heat of formation [J/mol]: {Hfl(CAS_water1)}")  ,# Liquid heat of formation [J/mol]
-   print(f"Gas heat of formation [J/mol]: {Hfg(CAS_water1)}")  ,# Gas heat of formation [J/mol]
-   print(f"Absolute liquid enthalpy of formation [J/mol/K]: {S0l(CAS_water1)}")  ,# Absolute liquid enthalpy of formation [J/mol/K]
-   print(f"Absolute gas enthalpy of formation [J/mol/K]: {S0g(CAS_WATER1)}") # Absolute gas enthalpy of formation [J/mol/K]
-
-except Exception:
-  pass
-  print("No second product")
-
-# Import package
-import wikipedia
-# Specify the title of the Wikipedia page
-nconv = conv[-1]
-
-# Extract the plain text content of the page
-try:
-    wiki = wikipedia.page(nconv)
-    text = wiki.content()
-except Exception:
-  pass
-  print("No sources from wikipedia about 1st product from wikipedia")
-nconv1 = conv[-2]
-
-# Extract the plain text content of the page
-try:
-    wiki = wikipedia.page(nconv1)
-    text = wiki.content()
-except Exception:
-  pass
-  print("No sources from wikipedia about 2nd product from wikipedia")
-
-# <form class="search-form"     
-# action="http://services.runescape.com/m=itemdb_rs/results#main-search" method="post">
-# <input class="text" placeholder="Search..." name="query" required="" type="search"> 
-# <input class="search-submit" value="Search" type="submit">
-
-print("SOME RESOURCES ABOUT 1ST PPRODUCT:")
-try:
-    from googlesearch import search
-except ImportError:
-    print("No module named 'google' found")
- 
-# to search
-query = conv[-1]
-try:
-  for j in search(query, tld="co.in", num=10, stop=10, pause=2):
-        print(j)
-except Exception:
-  pass
-  print("Couldn't find any")
-
-print("SOME RESOURCES ABOUT 2ND PPRODUCT:")
-try:
-    from googlesearch import search
-except ImportError:
-    print("No module named 'google' found")
- 
-# to search
-query = conv[-2]
-try:
-  for j in search(query, tld="co.in", num=10, stop=10, pause=2):
-        print(j)
-except Exception:
-  pass
-  print("Couldn't find any")
